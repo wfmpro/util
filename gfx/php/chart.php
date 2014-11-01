@@ -3,6 +3,24 @@
 //This is the Chart class
 class Chart
 {
+	//Bar chart
+	public function Bar(...$data){
+		$mi = imagecreatetruecolor(210,210);
+		$colorbar = imagecolorallocate($mi,255,0,0);
+		$colorspc = imagecolorallocate($mi,0,0,0);		
+		$index = 3; //increasing or decresing this will move the chart horizontally
+		//This function does not order results //rsort($data); 
+		foreach($data as $n){
+			imagefilledrectangle($mi, ($index*10)-9, 200,($index*10)-1,200-$n,$colorbar);
+			imagefilledrectangle($mi, ($index*10)-1, 200,($index*10)-1,200-$n,$colorspc);
+			$index = $index+1;
+		}		
+		
+		header('Content-type: image/png');
+		imagepng($mi);
+		imagedestroy($mi);
+	}
+	
 	//$data = angles in degrees
 	public function Pie(...$data){
 		$mi = imagecreatetruecolor(200,200);
