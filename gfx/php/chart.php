@@ -9,7 +9,7 @@ class Chart
 		$colorbar = imagecolorallocate($mi,255,0,0);
 		$colorspc = imagecolorallocate($mi,0,0,0);		
 		$index = 3; //increasing or decresing this will move the chart horizontally
-		//This function does not order results //rsort($data); 
+		
 		foreach($data as $n){
 			imagefilledrectangle($mi, ($index*10)-9, 200,($index*10)-1,200-$n,$colorbar);
 			imagefilledrectangle($mi, ($index*10)-1, 200,($index*10)-1,200-$n,$colorspc);
